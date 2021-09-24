@@ -13,5 +13,13 @@
     <artifactId>AccountSystemDomain</artifactId>
     <packaging>jar</packaging>
 
-    
+
+   <!-- <dependency>
+        <groupId>javax.persistence</groupId>
+        <artifactId>javax.persistence-api</artifactId>
+        <scope>provided</scope>
+    </dependency>
+
+-->
+
 </project>
