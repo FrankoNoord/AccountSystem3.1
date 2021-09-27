@@ -21,5 +21,23 @@
     </dependency>
 
 -->
+<!-- Session 3 documentation for dependencies -->
+
+        <dependencies>
+            <dependency>
+                <!-- To use persistence animations (Like @Entity and @Column): -->
+
+                <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
+            <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <!-- If you want to use lombok: -->
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        </dependencies>
+
+
 
 </project>

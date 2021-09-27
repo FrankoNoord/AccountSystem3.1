@@ -14,7 +14,9 @@
     <artifactId>AccountSystemRepository</artifactId>
     <packaging>jar</packaging>
 
-   <!--
+
+    <!--This is all dependencies from session 3 doc-->
+    <dependencies>
     <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter</artifactId>
@@ -23,5 +25,10 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
-    -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-java8</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>
