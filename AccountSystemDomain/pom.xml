@@ -14,13 +14,6 @@
     <packaging>jar</packaging>
 
 
-   <!-- <dependency>
-        <groupId>javax.persistence</groupId>
-        <artifactId>javax.persistence-api</artifactId>
-        <scope>provided</scope>
-    </dependency>
-
--->
 <!-- Session 3 documentation for dependencies -->
 
         <dependencies>
