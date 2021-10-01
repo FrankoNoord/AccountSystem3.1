@@ -17,11 +17,11 @@ import za.ac.nwu.logic.flow.FetchAccountTypeFlow;
 @RequestMapping("account-type")
 public class AccountTypeController {
 
-    private final FetchAccountTypeFlow fetchAccountTypeFlow;
+   // private final FetchAccountTypeFlow fetchAccountTypeFlow;
 
     @Autowired
     public AccountTypeController(FetchAccountTypeFlow fetchAccountTypeFlow){
-        this.fetchAccountTypeFlow=fetchAccountTypeFlow;
+        //this.fetchAccountTypeFlow=fetchAccountTypeFlow;
     }
     @GetMapping("/all")
     @ApiOperation(value = "Get all the configured Account types.", notes = "Returns a list of account types")
