@@ -33,5 +33,25 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
             }
             return accountTypeDtos;
         }
+
+    @Override
+    public AccountTypeDto create(AccountTypeDto accountType) {
+        return null;
     }
+
+    @Override
+    public AccountTypeDto getAccountTypeMnemonicNativeQuery(String mnemonic) {
+        return null;
+    }
+
+    @Override
+    public AccountTypeDto getAccountTypeByMnemonic(String mnemonic) {
+        return null;
+    }
+
+    @Override
+    public AccountTypeDto getAccountTypeDtoByMnemonic(String mnemonic) {
+        return null;
+    }
+}
 
