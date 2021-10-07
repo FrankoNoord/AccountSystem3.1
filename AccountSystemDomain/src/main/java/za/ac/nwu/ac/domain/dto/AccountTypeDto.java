@@ -9,13 +9,19 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-@ApiModel(value = "AccountType", description = "A DTO that represents the AccountType")
+@ApiModel(value = "AccountType",
+        description = "A DTO that represents the AccountType")
 public class AccountTypeDto implements Serializable {
+
     private static final long serialVersionUID = -5346853206480289868L;
 
     private String mnemonic;
     private String accountTypeName;
     private LocalDate creationDate;
+
+    public AccountTypeDto() {
+
+    }
 
     public AccountTypeDto(String mnemonic, String accountTypeName, LocalDate creationDate) {
         this.mnemonic = mnemonic;
@@ -23,18 +29,14 @@ public class AccountTypeDto implements Serializable {
         this.creationDate = creationDate;
     }
 
+
     public AccountTypeDto(AccountType accountType) {
         this.setAccountTypeName(accountType.getAccountTypeName());
         this.setCreationDate(accountType.getCreationDate());
         this.setMnemonic(accountType.getMnemonic());
     }
 
-    public AccountTypeDto() {
-
-    }
-
-    @ApiModelProperty(
-            position = 1,
+    @ApiModelProperty(position = 1,
             value = "AccountType Mnemonic",
             name = "Mnemonic",
             notes = "Uniquely identifies the account type",
@@ -72,11 +74,12 @@ public class AccountTypeDto implements Serializable {
             position = 3,
             value = "AccountType Creation Date",
             name = "CreationDate",
-            notes = "This is the date on which the account type was created",
+            notes = "This is the date on which the AccountType was created",
             dataType = "java.lang.String",
             example = "2021-01-01",
-            allowEmptyValue = true
-    )
+            allowEmptyValue = true,
+            required = false)
+
     public LocalDate getCreationDate() {
         return creationDate;
     }
