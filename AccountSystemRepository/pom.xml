@@ -41,5 +41,20 @@
             <artifactId>ojdbc8</artifactId>
             <scope>compile</scope>
         </dependency>
+        <!--<dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc8</artifactId>
+            <scope>compile</scope>
+        </dependency>-->
     </dependencies>
+
+    <!-- Adding code coverage JACOCO-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
