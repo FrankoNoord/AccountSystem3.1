@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 import za.ac.nwu.ac.domain.dto.AccountTransactionDto;
 import za.ac.nwu.ac.domain.service.GeneralResponse;
 import za.ac.nwu.ac.logic.flow.CreateAccountTransactionFlow;
@@ -18,6 +16,8 @@ import za.ac.nwu.ac.logic.flow.FetchAccountTransactionFlow;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("account-Transaction")
 public class AccountTransactionController {
 
     private final FetchAccountTransactionFlow fetchAccountTransactionFlow;

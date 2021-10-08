@@ -22,12 +22,10 @@ public class AccountType implements Serializable {
 
     private Set<AccountTransaction> accountTransactions;
 
-    public AccountType() {
 
-    }
 
-    public AccountType(Long accountTypeId, String mnemonic, String accountTypeName, LocalDate creationDate) {
-        this.ACCOUNT_TYPE_ID = accountTypeId;
+    public AccountType(Long ACCOUNT_TYPE_ID, String mnemonic, String accountTypeName, LocalDate creationDate) {
+        this.ACCOUNT_TYPE_ID = ACCOUNT_TYPE_ID;
         this.MNEMONIC = mnemonic;
         this.ACCOUNTTYPENAME = accountTypeName;
         this.CREATIONDATE = creationDate;
@@ -39,14 +37,20 @@ public class AccountType implements Serializable {
         this.CREATIONDATE = creationDate;
     }
 
+    public AccountType() {
+
+    }
     @Id
     @SequenceGenerator(name = "ACCOUNTTYPE_SEQ", sequenceName = "HR.ACCOUNTTYPE_SEQ", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACCOUNTTYPE_SEQ")
 
-    @Column(name = "ACCOUNTTYPEID")
-    public Long getAccountTypeId() {
-        return ACCOUNT_TYPE_ID;
+    @Column(name = "ACCOUNT_TYPE_ID")
+    public Long getACCOUNT_TYPE_ID() {return ACCOUNT_TYPE_ID;}
+
+    public void setACCOUNT_TYPE_ID(Long ACCOUNT_TYPE_ID) {
+        this.ACCOUNT_TYPE_ID = ACCOUNT_TYPE_ID;
     }
+
     @Column(name = "MNEMONIC")
     public String getMnemonic(){
 
@@ -72,10 +76,6 @@ public class AccountType implements Serializable {
         return accountTransactions;
     }
 
-    public void setAccountTypeId(Long accountTypeId) {
-
-        this.ACCOUNT_TYPE_ID = accountTypeId;
-    }
 
     public void setMnemonic(String mnemonic) {
 
@@ -108,7 +108,7 @@ public class AccountType implements Serializable {
     @Override
     public String toString() {
         return "AccountType{" +
-                "accountTypeId=" + ACCOUNT_TYPE_ID +
+                "ACCOUNT_TYPE_ID=" + ACCOUNT_TYPE_ID +
                 ", mnemonic='" + MNEMONIC + '\'' +
                 ", accountTypeName='" + ACCOUNTTYPENAME + '\'' +
                 ", creationDate=" + CREATIONDATE +

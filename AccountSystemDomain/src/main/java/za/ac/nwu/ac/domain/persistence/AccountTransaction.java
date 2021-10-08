@@ -1,113 +1,98 @@
 package za.ac.nwu.ac.domain.persistence;
 
+
 import javax.persistence.*;
+
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "ACCOUNTTRANSACTION",schema = "HR")
+@Table(name="ACCOUNTTRANSACTION", schema = "HR")
 public class AccountTransaction implements Serializable {
 
-    private static final long serialVersionUID = 1199041377884282633L;
+
+
     private Long ACCOUNT_TR_ID;
-    private AccountType accountType;
-    private Long ACCOUNTTYPEID;
+    private AccountType accountType; //Foreign Key
     private Long MEMBERID;
     private Long AMOUNT;
     private LocalDate TR_DATE;
 
-  /*public AccountTransaction(Long ACCOUNTTYPEID, Long MEMBERID, Long AMOUNT, LocalDate TR_DATE) {
+    public AccountTransaction(Long accountTypeId, Long memberId, Long amount, LocalDate trDate){
 
-    }*/
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ACCOUNT_TYPE_ID")
-
-
-    public AccountType getAccountType() {
-        return accountType;
     }
 
-    public void setAccountType(AccountType accountType) {
+    public AccountTransaction(Long transactionId, AccountType accountType, Long memberId, Long amount, LocalDate transactionDate) {
+        this.ACCOUNT_TR_ID = transactionId;
         this.accountType = accountType;
-    }
-
-    public AccountTransaction(Long accountTxId,Long accountTypeId, Long memberId, Long amount, LocalDate txDate) {
-        this.ACCOUNT_TR_ID = accountTxId;
-        this.ACCOUNTTYPEID = accountTypeId;
         this.MEMBERID = memberId;
         this.AMOUNT = amount;
-        this.TR_DATE = txDate;
-    }
-
-    public AccountTransaction(Long accountTypeId, Long memberId, Long amount, LocalDate txDate) {
-        this.ACCOUNTTYPEID = accountTypeId;
-        this.MEMBERID = memberId;
-        this.AMOUNT = amount;
-        this.TR_DATE = txDate;
-    }
-
-    public AccountTransaction(Long memberId, Long amount, LocalDate txDate) {
-        this.MEMBERID = memberId;
-        this.AMOUNT = amount;
-        this.TR_DATE = txDate;
-    }
-
-/*   public AccountTransaction(Long accountTypeId, Long memberId, Long amount, LocalDate txDate) {
-    }*/
-
-    public void setACCOUNT_TR_ID(Long accountTrId) {
-        this.ACCOUNT_TR_ID = accountTrId;
+        this.TR_DATE = transactionDate;
     }
 
     @Id
-    @SequenceGenerator(name="ACCOUNTTRANSACTION_SEQ",sequenceName = "HR.ACCOUNTTRANSACTION_SEQ",allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "ACCOUNTTRANSACTION_SEQ")
-    @Column(name = "Account_TR_ID")
-    public Long getAccountTxId() {
+    @SequenceGenerator(name="ACCOUNTTRANSACTION_SEQ", sequenceName = "HR.ACCOUNTTRANSACTION_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACCOUNTTRANSACTION_SEQ")
+    @Column(name = "ACCOUNT_TR_ID")
+    public Long getTransactionId() {
         return ACCOUNT_TR_ID;
     }
 
- /*   public void setAccountTypeId(Long accountTypeId) {
-        this.ACCOUNTTYPEID = accountTypeId;
-    }*/
-
-
-
-
-/*    @JoinColumn(name = "Account_Type_ID")
-    public Number getAccountTypeId() {
-        return ACCOUNTTYPEID;
-    }*/
-
-
-
-    public void setMemberID(Long memberId) {
-        this.MEMBERID = memberId;
+    @Column(name = "MEMBERID")
+    public Long getMemberId() {
+        return MEMBERID;
     }
 
-    @Column(name="Member_ID")
-    public Long getMemberID() {
-        return MEMBERID;
+    @Column(name = "AMOUNT")
+    public Long getAmount() {
+        return AMOUNT;
+    }
+
+    @Column(name = "TR_DATE")
+    public LocalDate getTrDate() {
+        return TR_DATE;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ACCOUNT_TYPE_ID")
+    public AccountType getAccountType(){
+        return accountType;
+    }
+
+    public void setTransactionId(Long transactionId) {
+        this.ACCOUNT_TR_ID = transactionId;
+    }
+
+    public void setAccountTypeId(AccountType accountTypeId) {
+        this.accountType = accountTypeId;
+    }
+
+    public void setMemberId(Long memberId) {
+        this.MEMBERID = memberId;
     }
 
     public void setAmount(Long amount) {
         this.AMOUNT = amount;
     }
 
-    @Column(name="Amount")
-    public Long getAmount() {
-        return AMOUNT;
+    public void setTrDate(LocalDate transactionDate) {
+        this.TR_DATE = transactionDate;
     }
 
-    public void setTxDate(LocalDate txDate) {
-        this.TR_DATE = txDate;
+    public void setAccountType(AccountType accountType) {
+        this.accountType = accountType;
     }
 
-    @Column(name="TX_Date")
-    public LocalDate getTxDate() {
-        return TR_DATE;
+    @Override
+    public String toString() {
+        return "AccountTransaction{" +
+                "transactionId=" + ACCOUNT_TR_ID +
+                ", accountType=" + accountType +
+                ", memberId=" + MEMBERID +
+                ", amount=" + AMOUNT +
+                ", transactionDate=" + TR_DATE +
+                '}';
     }
 
     @Override
@@ -115,22 +100,11 @@ public class AccountTransaction implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AccountTransaction that = (AccountTransaction) o;
-        return Objects.equals(ACCOUNT_TR_ID, that.ACCOUNT_TR_ID) && Objects.equals(ACCOUNTTYPEID, that.ACCOUNTTYPEID) && Objects.equals(MEMBERID, that.MEMBERID) && Objects.equals(AMOUNT, that.AMOUNT) && Objects.equals(TR_DATE, that.TR_DATE);
+        return Objects.equals(ACCOUNT_TR_ID, that.ACCOUNT_TR_ID) && Objects.equals(accountType, that.accountType) && Objects.equals(MEMBERID, that.MEMBERID) && Objects.equals(AMOUNT, that.AMOUNT) && Objects.equals(TR_DATE, that.TR_DATE);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ACCOUNT_TR_ID, ACCOUNTTYPEID, MEMBERID, AMOUNT, TR_DATE);
-    }
-
-    @Override
-    public String toString() {
-        return "AccountTransaction{" +
-                "accountTxId=" + ACCOUNT_TR_ID +
-                ", accountTypeID=" + ACCOUNTTYPEID +
-                ", memberId=" + MEMBERID +
-                ", amount=" + AMOUNT +
-                ", txDate=" + TR_DATE +
-                '}';
+        return Objects.hash(ACCOUNT_TR_ID, accountType, MEMBERID, AMOUNT, TR_DATE);
     }
 }

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import za.ac.nwu.ac.domain.persistence.AccountTransaction;
+import za.ac.nwu.ac.domain.persistence.AccountType;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -14,28 +15,28 @@ public class AccountTransactionDto implements Serializable {
 
     private static final long serialVersionUID = -7819344808062462808L;
 
-    private Long AccountTypeId;
+    private Long ACCOUNT_TYPE_ID;
     private Long memberId;
     private Long amount;
-    private LocalDate txDate;
+    private LocalDate trDate;
 
-    public AccountTransactionDto(Long memberId, Long amount, LocalDate txDate) {
+    public AccountTransactionDto(Long memberId, Long amount, LocalDate trDate) {
         this.memberId = memberId;
         this.amount = amount;
-        this.txDate = txDate;
+        this.trDate = trDate;
     }
 
-    public AccountTransactionDto(Long memberID, Long AccountTypeId, Long amount) {
+    public AccountTransactionDto(Long memberID, Long ACCOUNT_TYPE_ID, Long amount) {
         this.memberId = memberId;
-        this.AccountTypeId = AccountTypeId;
+        this.ACCOUNT_TYPE_ID = ACCOUNT_TYPE_ID;
         this.amount = amount;
-        this.txDate = LocalDate.now();
+        this.trDate = LocalDate.now();
     }
 
     public AccountTransactionDto(AccountTransaction accountTransaction) {
-        this.setMemberId(accountTransaction.getMemberID());
+        this.setMemberId(accountTransaction.getMemberId());
         this.setAmount(accountTransaction.getAmount());
-        this.setTxDate(accountTransaction.getTxDate());
+        this.setTrDate(accountTransaction.getTrDate());
     }
 
     public AccountTransactionDto() {
@@ -43,18 +44,19 @@ public class AccountTransactionDto implements Serializable {
     }
 
     @ApiModelProperty(position = 1,
-            value = "Account Type ID fo the account transaction",
-            name = "accountTypeId",
-            notes = "Uniquely identifies the account type of the account on which a transaction was performed",
+            value = "Account Type ID",
+            name = "ACCOUNT_TYPE_ID",
+            notes = "Uniquely identifies the account type for the transaction on the account",
             dataType = "java.lang.Long",
-            example = "3",
+            example = "10000",
             required = true)
-    public Long getAccountTypeId() {
-        return AccountTypeId;
+
+    public Long getACCOUNT_TYPE_ID() {
+        return ACCOUNT_TYPE_ID;
     }
 
-    public void setAccountTypeId(Long accountTypeId) {
-        AccountTypeId = accountTypeId;
+    public void setACCOUNT_TYPE_ID(Long accountTypeId) {
+        ACCOUNT_TYPE_ID = accountTypeId;
     }
 
 
@@ -64,7 +66,7 @@ public class AccountTransactionDto implements Serializable {
             name = "memberId",
             notes = "Uniquely identifies a member",
             dataType = "java.lang.String",
-            example = "1001",
+            example = "1111",
             required = true
     )
     public Long getMemberId() {
@@ -95,45 +97,65 @@ public class AccountTransactionDto implements Serializable {
     @ApiModelProperty(
             position = 4,
             value = "Transaction Date",
-            name = "txDate",
+            name = "trDate",
             notes = "The date the transaction occurred",
             dataType = "java.lang.String",
             example = "2021-02-01",
             required = true
     )
-    public LocalDate getTxDate() {
-        return txDate;
+    public LocalDate getTrDate() {
+        return trDate;
     }
 
-    public void setTxDate(LocalDate txDate) {
-        this.txDate = txDate;
+    public void setTrDate(LocalDate trDate) {
+        this.trDate = trDate;
     }
+
+
+/*    @ApiModelProperty(
+            position = 5,
+            value = "Transaction Id",
+            name = "trId",
+            notes = "The transaction Id",
+            dataType = "java.lang.Long",
+            example = "785",
+            required = true
+    )
+
+    public AccountType getAccount_Type_ID() {
+        return trDate;
+    }
+
+    public void setTrDate(LocalDate trDate) {
+        this.trDate = trDate;
+    }*/
 
     @JsonIgnore
     public AccountTransaction getTransaction() {
-        return new AccountTransaction(getAccountTypeId(),getMemberId(),getAmount(),getTxDate());
+        return new AccountTransaction(getACCOUNT_TYPE_ID(),getMemberId(),getAmount(),getTrDate());
     }
+
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         AccountTransactionDto that = (AccountTransactionDto) o;
-        return Objects.equals(AccountTypeId, that.AccountTypeId) && Objects.equals(memberId, that.memberId) && Objects.equals(amount, that.amount) && Objects.equals(txDate, that.txDate);
+        return Objects.equals(ACCOUNT_TYPE_ID, that.ACCOUNT_TYPE_ID) && Objects.equals(memberId, that.memberId) && Objects.equals(amount, that.amount) && Objects.equals(trDate, that.trDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(AccountTypeId, memberId, amount, txDate);
+        return Objects.hash(ACCOUNT_TYPE_ID, memberId, amount, trDate);
     }
 
     @Override
     public String toString() {
         return "AccountTransactionDto{" +
-                "AccountTypeId=" + AccountTypeId +
+                "AccountTypeId=" + ACCOUNT_TYPE_ID +
                 ", memberId=" + memberId +
                 ", amount=" + amount +
-                ", txDate=" + txDate +
+                ", trDate=" + trDate +
                 '}';
     }
 }

@@ -21,8 +21,8 @@ public class CreateAccountTransactionFlowImpl implements CreateAccountTransactio
 
    @Override
     public AccountTransactionDto create(AccountTransactionDto accountTransaction) {
-        if (null == accountTransaction.getTxDate()) {
-            accountTransaction.setTxDate(LocalDate.now());
+        if (null == accountTransaction.getTrDate()) {
+            accountTransaction.setTrDate(LocalDate.now());
         }
         return translator.create(accountTransaction);
     }
