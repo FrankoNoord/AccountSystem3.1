@@ -33,7 +33,7 @@ public class AccountTransaction implements Serializable {
 
     @Id
     @SequenceGenerator(name="ACCOUNTTRANSACTION_SEQ", sequenceName = "HR.ACCOUNTTRANSACTION_SEQ", allocationSize = 1)
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACCOUNTTRANSACTION_SEQ")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "ACCOUNTTRANSACTION_SEQ")
     @Column(name = "ACCOUNT_TR_ID")
     public Long getTransactionId() {
         return ACCOUNT_TR_ID;

@@ -14,11 +14,6 @@ import java.util.List;
 @Component
 public class FetchAccountTypeFlowImpl implements FetchAccountTypeFlow {
 
-   /* @Override
-    public List<AccountTypeDto> getAllAccountTypes() {
-        return null;
-    }*/
-
     @Override
     public AccountTypeDto getAccountTypeByMnemonic(String mnemonic) {
         return null;
@@ -34,6 +29,9 @@ public class FetchAccountTypeFlowImpl implements FetchAccountTypeFlow {
     @Override
     public List<AccountTypeDto> getAllAccountTypes() {
         return accountTypeTranslator.getAllAccountTypes();
+    }
 
+    public boolean methodToTest(){
+        return true;
     }
 }

@@ -163,8 +163,27 @@
                 <version>5.1.8.RELEASE</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.8.2</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
+<dependencies>
+    <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
 
 <!-- This is for nit testing using MAckito -->
    <!-- <dependencies>
@@ -196,6 +215,7 @@
     </dependencies>
 -->
     <!--Adding plugin for the Jococ code coverage -->
+   <!--
     <build>
         <pluginManagement>
             <plugins>
@@ -204,7 +224,7 @@
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>0.8.3</version>
                     <configuration>
-                        <!--suppress UnresolvedMavenProperty -->
+                        &lt;!&ndash;suppress UnresolvedMavenProperty &ndash;&gt;
                         <haltOnFailure>${haltOnFailure}</haltOnFailure>
                         <rules>
                         <rule>
@@ -261,9 +281,6 @@
 
         </pluginManagement>
     </build>
-
-
-
-
+    -->
 
 </project>
