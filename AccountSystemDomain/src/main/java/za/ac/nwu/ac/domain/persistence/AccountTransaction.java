@@ -31,6 +31,13 @@ public class AccountTransaction implements Serializable {
         this.TR_DATE = transactionDate;
     }
 
+    public AccountTransaction( AccountType accountType, Long memberId, Long amount, LocalDate transactionDate) {
+        this.accountType = accountType;
+        this.MEMBERID = memberId;
+        this.AMOUNT = amount;
+        this.TR_DATE = transactionDate;
+    }
+
     @Id
     @SequenceGenerator(name="ACCOUNTTRANSACTION_SEQ", sequenceName = "HR.ACCOUNTTRANSACTION_SEQ", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "ACCOUNTTRANSACTION_SEQ")

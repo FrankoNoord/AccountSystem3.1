@@ -46,6 +46,11 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
     }
 
     @Override
+    public AccountTypeDto save(AccountTypeDto accountType) {
+        return null;
+    }
+
+    @Override
     public AccountTypeDto getAccountTypeMnemonicNativeQuery(String mnemonic) {
         return null;
     }
@@ -57,6 +62,11 @@ public class AccountTypeTranslatorImpl implements AccountTypeTranslator {
 
     @Override
     public AccountTypeDto getAccountTypeDtoByMnemonic(String mnemonic) {
+        return null;
+    }
+
+    @Override
+    public AccountTypeDto save(AccountType accountType) {
         return null;
     }
 }

@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: AccountTypeControllerTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 3.471 s <<< FAILURE! - in AccountTypeControllerTest
+deleteAccountType  Time elapsed: 3.123 s  <<< FAILURE!
+java.lang.AssertionError: Status expected:<200> but was:<405>
+	at za.ac.nwu.ac.web.sb.controller.AccountTypeControllerTest.deleteAccountType(AccountTypeControllerTest.java:107)
+
+create  Time elapsed: 0.147 s  <<< FAILURE!
+org.mockito.exceptions.verification.junit.ArgumentsAreDifferent: 
+
+Argument(s) are different! Wanted:
+createAccountTypeFlow.create(
+    AccountTypeDto{mnemonic='MILES', accountTypeName='Miles account_type', creationDate=2020-01-01}
+);
+-> at za.ac.nwu.ac.web.sb.controller.AccountTypeControllerTest.create(AccountTypeControllerTest.java:92)
+Actual invocation has different arguments:
+createAccountTypeFlow.create(
+    AccountTypeDto{mnemonic='MILES', accountTypeName='Miles account type', creationDate=2020-01-01}
+);
+-> at za.ac.nwu.ac.web.sb.controller.AccountTypeController.create(AccountTypeController.java:58)
+
+	at za.ac.nwu.ac.web.sb.controller.AccountTypeControllerTest.create(AccountTypeControllerTest.java:92)
+
